@@ -8,5 +8,5 @@ public abstract class LessonB {
     public LessonB() {
         random = new Random();
     }
-    abstract void game();
+    public abstract void game();
 }
