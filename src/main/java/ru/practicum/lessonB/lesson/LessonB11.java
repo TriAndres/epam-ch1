@@ -9,22 +9,22 @@ public class LessonB11 extends LessonB {
     @Override
     public void game() {
         System.out.println("11. Элементы, которые равны полусумме соседних элементов.");
-        Integer[] numbers = {1, 2};
+        Integer[] numbers = {11, 22, 33, 44, 7};
         sortNum(numbers);
     }
 
     @Override
     public void sortNum(Integer[] numbers) {
         List<Number> list = new ArrayList<>();
-//            for (int i = 1; i < numbersFile.findAll().size() - 1; i++) {
-//                if (numbersFile.findAll().get(i).getNum() * 2 ==
-//                        numbersFile.findAll().get(i - 1).getNum() +
-//                                numbersFile.findAll().get(i + 1).getNum()) {
-//                    list.add(numbersFile.findAll().get(i));
-//                }
-//            }
+        for (int i = 1; i < numbers.length - 1; i++) {
+            if (numbers[i] * 2 ==
+                    numbers[i - 1] +
+                            numbers[i + 1]) {
+                list.add(numbers[i]);
+            }
+        }
         for (Number i : list) {
-            System.out.println("\t" + i);
+            System.out.print("\t" + i);
         }
     }
 
