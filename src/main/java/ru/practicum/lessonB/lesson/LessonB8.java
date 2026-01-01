@@ -11,39 +11,29 @@ public class LessonB8 extends LessonB {
     @Override
     public void game() {
         System.out.println("8. Числа в порядке убывания частоты встречаемости чисел.");
-        Integer[] numbers = {122, 122, 255, 57788};
-        //sortNum(numbers);
+        Integer[] numbers = {127, 122, 577988, 5};
+        sortNum(numbers);
     }
 
     @Override
     public void sortNum(Integer[] numbers) {
-//        Map<Integer, Integer> map = new HashMap<>();
-//        for (Integer number : numbers) {
-//            if (!map.containsKey(number)) {
-//                map.put(number, 1);
-//            } else {
-//                map.put(number, map.get(number) + 1);
-//            }
-//        }
-//
-//        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
-//
-//        for (Map.Entry<Integer, Integer> i : list) {
-//            System.out.print("\t" + i);
-//        }
-//
-//        System.out.println();
-//
-//        list.sort((a, b) -> {
-//            if (b.getValue().equals(a.getValue())) return b.getKey() - a.getKey();
-//            else return a.getValue() - b.getValue();
-//        });
-//
-//        for (Map.Entry<Integer, Integer> i : list) {
-//            System.out.print("\t" + i);
-//        }
-//
-//        System.out.println();
+        Map<Integer, Integer> map1 = new HashMap<>();
+        for (Integer number : numbers) {
+            Map<String, Integer> map2 = new HashMap<>();
+            String[] line = String.valueOf(number).split("");
+            for (String s : line) {
+                map2.put(s, map2.getOrDefault(s, 0) + 1);
+            }
+            map1.put(number, map2.values().size());
+        }
+
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map1.entrySet());
+
+        list.sort((a, b) -> b.getValue() - a.getValue());
+
+        for (Map.Entry<Integer, Integer> i : list) {
+            System.out.print("\t" + i.getKey() + "-" + i.getValue());
+        }
     }
 
     public static void main(String[] args) {
